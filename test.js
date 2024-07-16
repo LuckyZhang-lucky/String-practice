@@ -2,6 +2,7 @@ function formateNumber(inputString) {
     const regex = /[0-9]+\.?[0-9]*/
     const match = inputString.match(regex)
     if(!match) return ''
+
     let numberString = match[0]
     if(numberString.includes(".")){
         let parts = numberString.split('.')
@@ -15,12 +16,13 @@ function formateNumber(inputString) {
     }else {
         numberString += '.00'
     }
-    console.log(numberString,'============numberString')
+
+    // console.log(inputString, ":", numberString)
     return numberString
 }
 
-formateNumber('abc123.456')
-formateNumber('abc123')
-formateNumber('abc888efg.456789')
-formateNumber('a6b7c8efg.456789')
-formateNumber('hhhh')
+formateNumber('abc123.456') // "123.45"
+formateNumber('abc123') // "123.00"
+formateNumber('abc888efg.456789') // "888.00"
+formateNumber('a6b7c8efg.456789') // "6.00"
+formateNumber('hhhh') // ""
